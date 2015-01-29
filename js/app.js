@@ -36,6 +36,14 @@ var shortcut = new gui.Shortcut(option);
 
 gui.App.registerGlobalHotKey(shortcut);
 
+$(function()
+{
+    $("#submitButton").on("click", function submitClicked()
+    {
+
+    });
+});
+
 function screenshot()
 {
 	exec('/usr/sbin/screencapture -i temp.png', function(error, stdout, stderr) 
