@@ -85,11 +85,8 @@ function screenshot()
 //Upload the photo to Tumblr! 
 function uploadPhoto()
 {
-    var image = fs.readFileSync("temp.png", {encoding: "ascii"});
-    var encodedimage = encodeURIComponent(image);
-    console.log(encodedimage);
-    var data = {"type": "photo", "caption" : "test", "data": [encodedimage]};
-
+    var data = {"type": "photo", "data": "temp.png"};
+    
     client.photo("jasonport.tumblr.com", data, function (err, data) 
     {
         console.log(data);
