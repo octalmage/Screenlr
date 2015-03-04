@@ -2,6 +2,20 @@ var gui = require('nw.gui');
 var win = gui.Window.get();
 
 var exec = require('child_process').exec;
+var fs = require("fs");
+
+// Authenticate via OAuth
+var tumblr = require('tumblr.js');
+
+var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
+
+var client = tumblr.createClient(
+{
+  consumer_key: config.consumer_key,
+  consumer_secret: config.consumer_secret,
+  token: config.token,
+  token_secret: config.token_secret
+});
 
 var nativeMenuBar = new gui.Menu(
 {
@@ -47,12 +61,14 @@ gui.App.registerGlobalHotKey(shortcut);
 
 $(function()
 {
+    uploadPhoto();
 	$("#submitButton").on("click", function submitClicked()
 	{
-
+        
 	});
 });
 
+//Take a screenshot using Mac's screencapture.
 function screenshot()
 {
 	exec('/usr/sbin/screencapture -i temp.png', function(error, stdout, stderr)
@@ -64,4 +80,18 @@ function screenshot()
 			$("#capture").css("background-image", "url('temp.png?" + new Date().getTime() + "')");
 		}
 	});
+}
+
+//Upload the photo to Tumblr! 
+function uploadPhoto()
+{
+    var image = fs.readFileSync("temp.png", {encoding: "ascii"});
+    var encodedimage = encodeURIComponent(image);
+    console.log(encodedimage);
+    var data = {"type": "photo", "caption" : "test", "data": [encodedimage]};
+
+    client.photo("jasonport.tumblr.com", data, function (err, data) 
+    {
+        console.log(data);
+    });
 }
