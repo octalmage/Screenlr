@@ -7,26 +7,39 @@
 	<script src="js/app.js"></script>
 
 	<style type="text/css">
+        body
+        {
+            color: white;
+            background-color: #303329;
+            font-size: 22px;
+        }
+    
 		#capture
 		{
             display:block; 
-            margin: 0 auto
+            margin: 0 auto;
+            max-height: 200px;
             max-width: 100%;
-            height: auto;
-			background-position: center;
-			background-repeat: no-repeat;
-			background-size: contain;
+            text-align: center;
 		}
+        
+        #caption
+        {
+            
+            font-size: 22px;
+            width: 100%;
+        }
         
         
 	</style>
 
   </head>
   <body>
-  
-  <button id="submitButton">Submit</button>
+      
   <br><br>
-  <img id="capture">
+  <img id="capture"><br>
+  <input type="text" id="caption"><br>
+  <button id="submitButton">Create post</button>
   
 
   </body>
