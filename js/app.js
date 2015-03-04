@@ -85,7 +85,8 @@ function screenshot()
 //Upload the photo to Tumblr! 
 function uploadPhoto()
 {
-    var data = {"type": "photo", "data": "temp.png"};
+    var caption = $("#caption").val();
+    var data = {"type": "photo", "data": "temp.png", "caption": caption};
     
     client.photo("jasonport.tumblr.com", data, function (err, data) 
     {
