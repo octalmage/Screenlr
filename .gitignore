@@ -1,0 +1,4 @@
+node_modules/
+.atom-build.json
+temp.png
+config.json
