@@ -76,7 +76,8 @@ function screenshot()
 		console.log(error)
 		if (error == null)
 		{
-			$("#capture").css("background-image", "url('temp.png?" + new Date().getTime() + "')");
+			//$("#capture").css("background-image", "url('temp.png?" + new Date().getTime() + "')");
+            $("#capture").attr("src", "temp.png?" + new Date().getTime());
 		}
 	});
 }
