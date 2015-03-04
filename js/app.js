@@ -63,6 +63,7 @@ $(function()
 {
 	$("#submitButton").on("click", function()
 	{
+        win.hide();
         uploadPhoto();
 	});
 });
@@ -76,7 +77,7 @@ function screenshot()
 		console.log(error)
 		if (error == null)
 		{
-			//$("#capture").css("background-image", "url('temp.png?" + new Date().getTime() + "')");
+            win.show();
             $("#capture").attr("src", "temp.png?" + new Date().getTime());
 		}
 	});
@@ -93,3 +94,8 @@ function uploadPhoto()
         console.log(data);
     });
 }
+
+win.on('close', function() 
+{
+  win.hide();
+});
