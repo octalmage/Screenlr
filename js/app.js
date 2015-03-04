@@ -61,10 +61,9 @@ gui.App.registerGlobalHotKey(shortcut);
 
 $(function()
 {
-    uploadPhoto();
-	$("#submitButton").on("click", function submitClicked()
+	$("#submitButton").on("click", function()
 	{
-        
+        uploadPhoto();
 	});
 });
 
