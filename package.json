@@ -1,6 +1,18 @@
 {
   "name": "Screenlr",
   "main": "index.html",
+  "window": {
+    "title": "Screenlr",
+    "toolbar": false,
+    "frame": true,
+    "width": 600,
+    "height": 350,
+    "resizable": true,
+    "always-on-top": true,
+    "position": "center",
+    "show": false,
+    "show_in_taskbar": false 
+},
   "dependencies": {
     "tumblr.js": "0.0.4"
   }
