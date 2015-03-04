@@ -1,4 +1,7 @@
 {
   "name": "Screenlr",
-  "main": "index.html"
+  "main": "index.html",
+  "dependencies": {
+    "tumblr.js": "0.0.4"
+  }
 }
