@@ -87,6 +87,8 @@ function screenshot()
 function uploadPhoto()
 {
     var caption = $("#caption").val();
+    $("#caption").val("");
+    
     var data = {"type": "photo", "data": "temp.png", "caption": caption};
     
     client.photo("jasonport.tumblr.com", data, function (err, data) 
@@ -98,4 +100,5 @@ function uploadPhoto()
 win.on('close', function() 
 {
   win.hide();
+  $("#caption").val("");
 });
