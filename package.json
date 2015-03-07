@@ -7,7 +7,7 @@
     "frame": true,
     "width": 600,
     "height": 350,
-    "resizable": true,
+    "resizable": false,
     "always-on-top": true,
     "position": "center",
     "show": false,
