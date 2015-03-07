@@ -21,24 +21,33 @@
             max-height: 200px;
             max-width: 100%;
             text-align: center;
+            position: relative;
+            top: 50%;
+            -webkit-transform: translateY(-50%);
 		}
         
         #caption
         {
-            
             font-size: 22px;
+            width: 578px;
+            margin-top: 8px;
+        }    
+        
+        #scene
+        {
+            height: 200px;
             width: 100%;
         }
-        
         
 	</style>
 
   </head>
   <body>
-      
-  <br><br>
-  <img id="capture"><br>
-  <input type="text" id="caption"><br>
+  <div id="scene">
+  <img id="capture">
+  </div>
+
+  <input type="text" id="caption">
   <button id="submitButton">Create post</button>
   
 
