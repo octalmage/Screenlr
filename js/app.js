@@ -1,5 +1,6 @@
 var gui = require('nw.gui');
 var win = gui.Window.get();
+var clipboard = gui.Clipboard.get();
 
 var exec = require('child_process').exec;
 var fs = require("fs");
@@ -94,6 +95,7 @@ function uploadPhoto()
     client.photo(blog, data, function (err, data) 
     {
         console.log(data);
+        clipboard.set("http://" + blog + "/" + data.id, "text");
     });
 }
 
