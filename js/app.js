@@ -75,8 +75,6 @@ function screenshot()
 {
 	exec('/usr/sbin/screencapture -i temp.png', function(error, stdout, stderr)
 	{
-		console.log(stdout);
-		console.log(error)
 		if (error == null)
 		{
             win.show();
