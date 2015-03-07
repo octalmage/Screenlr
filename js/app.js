@@ -12,6 +12,10 @@ var tumblr = require('tumblr.js');
 
 var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
+var options = {
+  body: "Post url copied to your clipboard."
+};
+
 var client = tumblr.createClient(
 {
   consumer_key: config.consumer_key,
@@ -103,6 +107,7 @@ function uploadPhoto()
     {
         console.log(data);
         clipboard.set("http://" + blog + "/" + data.id, "text");
+        var notification = new Notification("Screenlr",options);
     });
 }
 
