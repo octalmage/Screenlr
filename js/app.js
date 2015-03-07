@@ -29,7 +29,7 @@ win.menu = nativeMenuBar;
 // Create a tray text
 var tray = new gui.Tray(
 {
-	title: 'Screenlr'
+	title: 'S'
 });
 
 // Give it a menu.
