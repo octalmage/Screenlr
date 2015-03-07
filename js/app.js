@@ -4,6 +4,8 @@ var win = gui.Window.get();
 var exec = require('child_process').exec;
 var fs = require("fs");
 
+var blog = "jasonsscreenshots.tumblr.com";
+
 // Authenticate via OAuth
 var tumblr = require('tumblr.js');
 
@@ -91,7 +93,7 @@ function uploadPhoto()
     
     var data = {"type": "photo", "data": "temp.png", "caption": caption};
     
-    client.photo("jasonport.tumblr.com", data, function (err, data) 
+    client.photo(blog, data, function (err, data) 
     {
         console.log(data);
     });
