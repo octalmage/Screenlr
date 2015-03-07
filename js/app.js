@@ -90,7 +90,14 @@ function uploadPhoto()
     var caption = $("#caption").val();
     $("#caption").val("");
     
-    var data = {"type": "photo", "data": "temp.png", "caption": caption};
+    if (caption)
+    {
+        var data = {"type": "photo", "data": "temp.png", "caption": caption};    
+    }
+    else
+    {
+        var data = {"type": "photo", "data": "temp.png"}; 
+    }
     
     client.photo(blog, data, function (err, data) 
     {
