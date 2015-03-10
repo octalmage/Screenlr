@@ -1,8 +1,8 @@
 Screenlr
 ========
 
-Screen capture app for Tumblr.
+Screen capture for Tumblr (Mac only).
 
-This is a rewrite of an old app I made in 2008. I'm porting it to node.js and it will be Mac only for now. 
+<p align="center"><img src="https://cldup.com/qMplVPgAAQ.png"></p>
 
 [Old Project](https://code.google.com/p/screenlr/)
