@@ -6,7 +6,7 @@
     "toolbar": false,
     "frame": true,
     "width": 600,
-    "height": 350,
+    "height": 315,
     "resizable": false,
     "always-on-top": true,
     "position": "center",
