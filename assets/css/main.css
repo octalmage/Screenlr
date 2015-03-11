@@ -1,0 +1,54 @@
+body
+{
+    color: white;
+    background-color: #36465d;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    overflow: hidden;
+}
+
+#capture
+{
+    display:block; 
+    margin: 0 auto;
+    max-height: 200px;
+    max-width: 100%;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+}
+
+#caption
+{
+    font-size: 22px;
+    width: 578px;
+    margin-top: 8px;
+}    
+
+#scene
+{
+    height: 200px;
+    width: 100%;
+}
+
+#submitButton
+{
+    margin-top: 8px;
+    float: left;
+}
+
+#cancelButton
+{
+    margin-top: 8px;
+    margin-left: 8px;
+    float: left;
+}
+
+#saveButton
+{
+    margin-top: 8px;
+    margin-right: 8px;
+    float: right;
+}
