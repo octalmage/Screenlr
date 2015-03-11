@@ -1,14 +1,14 @@
-var gui = require('nw.gui');
+var gui = require("nw.gui");
 var win = gui.Window.get();
 var clipboard = gui.Clipboard.get();
 
-var exec = require('child_process').exec;
+var exec = require("child_process").exec;
 var fs = require("fs");
 
 var blog = "jasonsscreenshots.tumblr.com";
 
 // Authenticate via OAuth
-var tumblr = require('tumblr.js');
+var tumblr = require("tumblr.js");
 
 var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
@@ -34,14 +34,14 @@ win.menu = nativeMenuBar;
 // Create a tray text
 var tray = new gui.Tray(
 {
-	title: 'S'
+	title: "S"
 });
 
 // Give it a menu.
 var menu = new gui.Menu();
 menu.append(new gui.MenuItem(
 {
-	label: 'Exit',
+	label: "Exit",
 	click: function()
 	{
 		gui.App.quit();
@@ -78,7 +78,7 @@ $(function()
 //Take a screenshot using Mac's screencapture.
 function screenshot()
 {
-	exec('/usr/sbin/screencapture -i temp.png', function(error, stdout, stderr)
+	exec("/usr/sbin/screencapture -i temp.png", function(error, stdout, stderr)
 	{
 		if (error == null)
 		{
@@ -111,7 +111,7 @@ function uploadPhoto()
     });
 }
 
-win.on('close', function() 
+win.on("close", function() 
 {
   win.hide();
   $("#caption").val("");
