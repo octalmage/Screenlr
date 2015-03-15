@@ -1,6 +1,7 @@
 {
   "name": "Screenlr",
   "main": "index.html",
+  "version": "0.0.1", 
   "window": {
     "title": "Screenlr",
     "toolbar": false,
