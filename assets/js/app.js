@@ -133,13 +133,11 @@ function uploadPhoto()
     var caption = $("#caption").val();
     closeGUI();
     
+    var data = {"type": "photo", "data": "temp.png"}; 
+    
     if (caption)
     {
-        var data = {"type": "photo", "data": "temp.png", "caption": caption};    
-    }
-    else
-    {
-        var data = {"type": "photo", "data": "temp.png"}; 
+        data.caption = caption;   
     }
     
     client.photo(blog, data, function (err, data) 
