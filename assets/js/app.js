@@ -90,6 +90,11 @@ $(function()
         win.hide();
         uploadPhoto();
 	});
+    
+    $("#cancelButton").on("mousedown", function()
+    {
+        closeGUI();
+    })
 });
 
 //Take a screenshot using Mac's screencapture.
