@@ -21,20 +21,42 @@ else
 var request = require("request");
 // Authenticate via OAuth
 var tumblr = require("tumblr.js");
+var client;
 
 global.config = JSON.parse(fs.readFileSync("config.json", "utf8"));
+
+//Open database for app settings.
+var db = new PouchDB("settings");
+
+//Load OAuth token and secret.
+db.get("oauth", function(err, doc) 
+{
+    //Token not in database. 
+    if (err) 
+    { 
+        //Start OAuth authentication procss. 
+        auth.init(function()
+        {
+            //Store OAuth token in database.
+            db.put({
+                _id: "oauth",
+                token: global.config.token,
+                token_secret: global.config.token_secret
+            });
+            setup();
+        });
+        return;
+    }
+    
+    //Load OAuth token from database into memory.
+    global.config.token = doc.token;
+    global.config.token_secret = doc.token_secret;
+    setup();
+});
 
 var options = {
   body: notificationtext
 };
-
-var client = tumblr.createClient(
-{
-  consumer_key: config.consumer_key,
-  consumer_secret: config.consumer_secret,
-  token: config.token,
-  token_secret: config.token_secret
-});
 
 var nativeMenuBar = new gui.Menu(
 {
@@ -60,23 +82,6 @@ menu.append(new gui.MenuItem(
 	},
 }));
 tray.menu = menu;
-
-//Hotkey
-var option = {
-	key: "Ctrl+Shift+T",
-	active: function()
-	{
-		screenshot()
-	},
-	failed: function(msg)
-	{
-		console.log(msg);
-	}
-};
-
-var shortcut = new gui.Shortcut(option);
-
-gui.App.registerGlobalHotKey(shortcut);
 
 $(function()
 {
@@ -145,3 +150,32 @@ win.on("close", function()
   win.hide();
   $("#caption").val("");
 });
+
+//Configure Tumblr authentication and hotkey. 
+function setup()
+{
+    client = tumblr.createClient(
+    {
+        consumer_key: global.config.consumer_key,
+        consumer_secret: global.config.consumer_secret,
+        token: global.config.token,
+        token_secret: global.config.token_secret
+    });
+    
+    //Hotkey
+    var option = {
+    	key: "Ctrl+Shift+T",
+    	active: function()
+    	{
+    		screenshot()
+    	},
+    	failed: function(msg)
+    	{
+    		console.log(msg);
+    	}
+    };
+
+    var shortcut = new gui.Shortcut(option);
+
+    gui.App.registerGlobalHotKey(shortcut);
+}
