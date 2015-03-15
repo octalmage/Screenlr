@@ -1,3 +1,5 @@
+//Tumblr OAuth process.
+
 var express = require("express");
 var oauth = require("oauth");
 var http = require("http");
