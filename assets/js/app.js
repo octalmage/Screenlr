@@ -119,6 +119,9 @@ function screenshot()
 		if (error == null)
 		{
             win.show();
+            win.focus();
+            $("#caption").focus();
+            
             $("#capture").attr("src", "temp.png?" + new Date().getTime());
 		}
 	});
