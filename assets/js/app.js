@@ -18,7 +18,7 @@ var request = require("request");
 // Authenticate via OAuth
 var tumblr = require("tumblr.js");
 
-var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
+global.config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 var options = {
   body: notificationtext
