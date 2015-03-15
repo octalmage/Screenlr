@@ -127,7 +127,6 @@ function uploadPhoto()
     
     client.photo(blog, data, function (err, data) 
     {
-        console.log(data);
         if (urltype == "image")
         {
             url = "http://" + blog + "/api/read/json?type=photo&num=1";
