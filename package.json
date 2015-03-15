@@ -11,8 +11,8 @@
     "always-on-top": true,
     "position": "center",
     "show": false,
-    "show_in_taskbar": false 
-},
+    "show_in_taskbar": false
+  },
   "dependencies": {
     "jquery": "^2.1.3",
     "request": "^2.53.0",
