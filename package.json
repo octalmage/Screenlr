@@ -3,6 +3,7 @@
   "main": "index.html",
   "version": "0.0.1", 
   "description": "Screen capture for Tumblr.",
+  "homepage": "https://github.com/octalmage/Screenlr",
   "window": {
     "title": "Screenlr",
     "toolbar": false,
