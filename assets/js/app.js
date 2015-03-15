@@ -86,6 +86,20 @@ tray.menu = menu;
 
 $(function()
 {
+    $(document).keyup(function(e)
+    {
+        //Close the dialog if esc is pressed.
+        if (e.keyCode == 27) 
+        {
+            closeGUI();
+        }
+        //Upload the screenshot if enter is pressed.
+        else if (e.keyCode == 13) 
+        {
+            uploadPhoto();
+        }
+    });
+    
 	$("#submitButton").on("mousedown", function()
 	{
         uploadPhoto();
