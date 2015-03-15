@@ -87,7 +87,6 @@ $(function()
 {
 	$("#submitButton").on("mousedown", function()
 	{
-        win.hide();
         uploadPhoto();
 	});
     
@@ -114,7 +113,7 @@ function screenshot()
 function uploadPhoto()
 {
     var caption = $("#caption").val();
-    $("#caption").val("");
+    closeGUI();
     
     if (caption)
     {
@@ -151,9 +150,15 @@ function uploadPhoto()
 
 win.on("close", function() 
 {
-  win.hide();
-  $("#caption").val("");
+    closeGUI();
 });
+
+//Hides the GUI and clears caption field.
+function closeGUI()
+{
+    win.hide();
+    $("#caption").val("");
+}
 
 //Configure Tumblr authentication and hotkey. 
 function setup()
