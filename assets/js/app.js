@@ -18,6 +18,7 @@ var blog = "jasonsscreenshots.tumblr.com";
 var urltype = "post";
 var notificationtext;
 var client;
+var currenturl;
 
 //Set notification text based on URL type.
 if (urltype == "image")
@@ -135,16 +136,17 @@ function uploadPhoto()
                 {
                     //Regex to match the largest image.
                     var match = /1280\":\"(.*)\",\"photo-url-500/.exec(body);
-                    var imageurl = match[1].replace(/\\/g, "");
-                    clipboard.set(imageurl);
-                    var notification = new Notification("Screenlr",options); 
+                    var currenturl = match[1].replace(/\\/g, "");
+                    clipboard.set(currenturl);
+                    notify();
                 }
             });
         }
         else 
         {
-            clipboard.set("http://" + blog + "/" + data.id, "text");
-            var notification = new Notification("Screenlr",options);    
+            currenturl = "http://" + blog + "/" + data.id, "text";
+            clipboard.set(currenturl);
+            notify();  
         }
     });
 }
@@ -159,6 +161,15 @@ function closeGUI()
 {
     win.hide();
     $("#caption").val("");
+}
+
+function notify()
+{
+    var notification = new Notification("Screenlr",options); 
+    notification.onclick = function () 
+    {
+        gui.Shell.openExternal(currenturl);
+    }
 }
 
 //Configure Tumblr authentication and hotkey. 
