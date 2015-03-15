@@ -1,4 +1,6 @@
 var gui = require("nw.gui");
+global.gui = gui;
+
 var win = gui.Window.get();
 var clipboard = gui.Clipboard.get();
 
