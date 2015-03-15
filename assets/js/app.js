@@ -85,7 +85,7 @@ tray.menu = menu;
 
 $(function()
 {
-	$("#submitButton").on("click", function()
+	$("#submitButton").on("mousedown", function()
 	{
         win.hide();
         uploadPhoto();
