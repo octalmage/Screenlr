@@ -4,6 +4,8 @@ global.gui = gui;
 var win = gui.Window.get();
 var clipboard = gui.Clipboard.get();
 
+var auth = require("./assets/js/auth.js")
+
 var exec = require("child_process").exec;
 var fs = require("fs");
 
