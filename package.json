@@ -2,6 +2,7 @@
   "name": "Screenlr",
   "main": "index.html",
   "version": "0.0.1", 
+  "description": "Screen capture for Tumblr.",
   "window": {
     "title": "Screenlr",
     "toolbar": false,
