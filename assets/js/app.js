@@ -1,29 +1,29 @@
-var gui = require("nw.gui");
-global.gui = gui;
+//Main source file.
 
-var win = gui.Window.get();
-var clipboard = gui.Clipboard.get();
+var gui = require("nw.gui");
+var exec = require("child_process").exec;
+var fs = require("fs");
+var request = require("request");
+var tumblr = require("tumblr.js");
 
 var auth = require("./assets/js/auth.js")
 
-var exec = require("child_process").exec;
-var fs = require("fs");
+//Global variables. 
+global.gui = gui;
+global.config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
+var win = gui.Window.get();
+var clipboard = gui.Clipboard.get();
 var blog = "jasonsscreenshots.tumblr.com";
 var urltype = "post";
 var notificationtext;
+var client;
 
+//Set notification text based on URL type.
 if (urltype == "image")
     notificationtext = "Image url copied to your clipboard."
 else
     notificationtext = "Post url copied to your clipboard."
-
-var request = require("request");
-// Authenticate via OAuth
-var tumblr = require("tumblr.js");
-var client;
-
-global.config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 //Open database for app settings.
 var db = new PouchDB("settings");
