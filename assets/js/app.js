@@ -6,14 +6,22 @@ var exec = require("child_process").exec;
 var fs = require("fs");
 
 var blog = "jasonsscreenshots.tumblr.com";
+var urltype = "post";
+var notificationtext;
 
+if (urltype == "image")
+    notificationtext = "Image url copied to your clipboard."
+else
+    notificationtext = "Post url copied to your clipboard."
+
+var request = require("request");
 // Authenticate via OAuth
 var tumblr = require("tumblr.js");
 
 var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 var options = {
-  body: "Post url copied to your clipboard."
+  body: notificationtext
 };
 
 var client = tumblr.createClient(
@@ -106,8 +114,25 @@ function uploadPhoto()
     client.photo(blog, data, function (err, data) 
     {
         console.log(data);
-        clipboard.set("http://" + blog + "/" + data.id, "text");
-        var notification = new Notification("Screenlr",options);
+        if (urltype == "image")
+        {
+            url = "http://" + blog + "/api/read/json?type=photo&num=1";
+            request(url, function (error, response, body) 
+            {
+                if (!error && response.statusCode == 200) 
+                {
+                    var match = /1280\":\"(.*)\",\"photo-url-500/.exec(body);
+                    var imageurl = match[1].replace(/\\/g, "");
+                    clipboard.set(imageurl);
+                    var notification = new Notification("Screenlr",options); 
+                }
+            });
+        }
+        else 
+        {
+            clipboard.set("http://" + blog + "/" + data.id, "text");
+            var notification = new Notification("Screenlr",options);    
+        }
     });
 }
 
