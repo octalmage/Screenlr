@@ -133,6 +133,7 @@ function uploadPhoto()
             {
                 if (!error && response.statusCode == 200) 
                 {
+                    //Regex to match the largest image.
                     var match = /1280\":\"(.*)\",\"photo-url-500/.exec(body);
                     var imageurl = match[1].replace(/\\/g, "");
                     clipboard.set(imageurl);
