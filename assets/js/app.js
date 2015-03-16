@@ -5,6 +5,7 @@ var exec = require("child_process").exec;
 var fs = require("fs");
 var request = require("request");
 var tumblr = require("tumblr.js");
+var moment = require("moment");
 
 var auth = require("./assets/js/auth.js")
 
