@@ -178,6 +178,7 @@ function closeGUI()
     $("#caption").val("");
 }
 
+//Show notification after image is uploaded and add onclick handler.
 function notify()
 {
     var notification = new Notification("Screenlr",options); 
