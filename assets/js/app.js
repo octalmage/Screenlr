@@ -110,6 +110,16 @@ $(function()
     {
         closeGUI();
     })
+    
+    $("#saveButton").on("mousedown", function()
+    {
+        savetofile(function(directory)
+        {
+            var timestamp = moment().format("YYYY-MM-DD [at] H.mm.ss A");
+            var destinationfile = directory + "/" + "Screenlr Screen Shot " + timestamp + ".png";
+            fs.createReadStream("temp.png").pipe(fs.createWriteStream(destinationfile));
+        });
+    });
 });
 
 //Take a screenshot using Mac's screencapture.
