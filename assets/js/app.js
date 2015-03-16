@@ -66,7 +66,7 @@ var nativeMenuBar = new gui.Menu(
 nativeMenuBar.createMacBuiltin("Screenlr");
 win.menu = nativeMenuBar;
 
-// Create a tray text
+//Create tray text.
 var tray = new gui.Tray(
 {
 	title: "S"
