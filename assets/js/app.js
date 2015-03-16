@@ -199,8 +199,9 @@ function setup()
         token_secret: global.config.token_secret
     });
     
-    //Hotkey
-    var option = {
+    //Hotkey configuration.
+    var option = 
+    {
     	key: "Ctrl+Shift+T",
     	active: function()
     	{
