@@ -7,7 +7,7 @@ var request = require("request");
 var tumblr = require("tumblr.js");
 var moment = require("moment");
 
-var auth = require("./assets/js/auth.js")
+var auth = require("./assets/js/auth.js");
 
 //Global variables. 
 global.gui = gui;
