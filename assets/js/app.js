@@ -189,6 +189,21 @@ function notify()
     }
 }
 
+//Launch save file dialog and return the directory using a callback.
+function savetofile(done)
+{
+	var chooser = $("#fileDialog");
+	chooser.change(function(evt)
+	{
+        if (typeof done === "function")
+        {
+            done($(this).val());
+        } 
+	});
+
+	chooser.trigger("click");
+}
+
 //Configure Tumblr authentication and hotkey. 
 function setup()
 {
