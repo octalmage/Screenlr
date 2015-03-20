@@ -15,7 +15,6 @@ global.config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 var win = gui.Window.get();
 var clipboard = gui.Clipboard.get();
-var blog = "jasonsscreenshots.tumblr.com";
 var urltype = "post";
 var notificationtext;
 var client;
@@ -142,6 +141,8 @@ function screenshot()
 function uploadPhoto()
 {
     var caption = $("#caption").val();
+    var blog = $("#blogs").val();
+    var blogurl = blog + ".tumblr.com";
     closeGUI();
     
     var data = {"type": "photo", "data": "temp.png"}; 
@@ -155,7 +156,7 @@ function uploadPhoto()
     {
         if (urltype == "image")
         {
-            url = "http://" + blog + "/api/read/json?type=photo&num=1";
+            url = "http://" + blogurl + "/api/read/json?type=photo&num=1";
             request(url, function (error, response, body) 
             {
                 if (!error && response.statusCode == 200) 
@@ -170,7 +171,7 @@ function uploadPhoto()
         }
         else 
         {
-            currenturl = "http://" + blog + "/" + data.id, "text";
+            currenturl = "http://" + blogurl + "/" + data.id, "text";
             clipboard.set(currenturl);
             notify();  
         }
@@ -223,6 +224,18 @@ function setup()
         consumer_secret: global.config.consumer_secret,
         token: global.config.token,
         token_secret: global.config.token_secret
+    });
+    
+    //Create blog list dropdown.
+    client.userInfo(function (err, data) 
+    {
+        data.user.blogs.forEach(function (blog) 
+        {
+            $("#blogs").append(
+                $("<option></option>")
+                .val(blog.name)
+                .html(blog.name));
+        });
     });
     
     //Hotkey configuration.
