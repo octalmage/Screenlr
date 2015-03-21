@@ -19,6 +19,7 @@ var urltype = "post";
 var notificationtext;
 var client;
 var currenturl;
+var app_version = gui.App.manifest.version;
 
 //Set notification text based on URL type.
 if (urltype == "image")
@@ -74,6 +75,14 @@ var tray = new gui.Tray(
 
 // Give it a menu.
 var menu = new gui.Menu();
+menu.append(new gui.MenuItem(
+{
+	label: 'v' + app_version
+}));
+menu.append(new gui.MenuItem(
+{
+	type: 'separator'
+}));
 menu.append(new gui.MenuItem(
 {
 	label: "Exit",
