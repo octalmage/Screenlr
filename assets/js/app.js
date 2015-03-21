@@ -197,6 +197,7 @@ function closeGUI()
 {
     win.hide();
     $("#caption").val("");
+    $("#capture").attr("src", "assets/img/loading.gif");
 }
 
 //Show notification after image is uploaded and add onclick handler.
