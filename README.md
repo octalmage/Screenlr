@@ -9,4 +9,4 @@ Screen capture for Tumblr (Mac only).
 
 Press `Command+Shift+T` to start screen capture.
 
-[Old Project](https://code.google.com/p/screenlr/)
+[**Download**](https://github.com/octalmage/Screenlr/releases/latest)
