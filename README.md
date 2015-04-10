@@ -5,8 +5,11 @@ Screen capture for Tumblr (Mac only).
 
 <p align="center"><img src="https://cldup.com/95tV73820H.png"></p>
 
-### Instructions
+## Instructions
 
 Press `Command+Shift+T` to start screen capture.
 
 [**Download**](https://github.com/octalmage/Screenlr/releases/latest)
+
+## License 
+GPL v2
