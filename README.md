@@ -14,6 +14,7 @@ Screenlr lets you take a screenshot and post it directly to Tumblr. You can capt
 * With Screenlr running press `Command+Shift+T` to start.
 * Click and drag over the area you'd like to capture.
 * Optionally enter a caption then hit "Create post".
+* That's it! The post URL will be copied to your clipboard. 
 
 ![](https://cldup.com/-WQZt_FlKe.gif)
 
