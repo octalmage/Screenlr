@@ -21,6 +21,11 @@ var client;
 var currenturl;
 var app_version = gui.App.manifest.version;
 
+if (typeof global.config.urltype !== undefined)
+{
+    urltype = global.config.urltype;
+}
+
 //Set notification text based on URL type.
 if (urltype == "image")
     notificationtext = "Image url copied to your clipboard."
