@@ -21,6 +21,7 @@ var client;
 var currenturl;
 var app_version = gui.App.manifest.version;
 
+//Allow setting URL type to post or image using config.json.
 if (typeof global.config.urltype !== undefined)
 {
     urltype = global.config.urltype;
